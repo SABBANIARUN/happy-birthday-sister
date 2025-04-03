@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Wishes</title>
+    <title>Happy Birthday Rajitha Sister</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -13,27 +13,24 @@
             color: white;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            transition: background 1s ease-in-out;
         }
         .container {
-            margin-top: 100px;
-            position: relative;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            display: inline-block;
+            width: 90%;
+            max-width: 600px;
         }
         h1 {
-            font-size: 60px;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.7);
+            font-size: 40px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
             animation: glow 2s infinite alternate;
         }
-        @keyframes glow {
-            from {
-                text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.7);
-            }
-            to {
-                text-shadow: 5px 5px 20px rgba(255, 255, 255, 1);
-            }
-        }
         .wish {
-            font-size: 24px;
+            font-size: 20px;
             margin-top: 20px;
             font-weight: bold;
         }
@@ -41,98 +38,80 @@
             background: linear-gradient(to right, #ff0080, #ff8c00);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
             cursor: pointer;
             margin-top: 20px;
             transition: 0.3s;
-            box-shadow: 0px 5px 15px rgba(255, 0, 128, 0.5);
         }
         button:hover {
             background: linear-gradient(to right, #ff8c00, #ff0080);
             transform: scale(1.1);
         }
-        .nav {
+        .gallery {
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            padding: 10px 20px;
-            background: #ff0080;
+        .gallery img {
+            width: 150px;
+            height: 150px;
             border-radius: 10px;
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s;
         }
-        .nav a:hover {
-            background: #ff8c00;
+        .gallery img:hover {
+            transform: scale(1.1);
         }
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(0px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+        @keyframes glow {
+            from { text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); }
+            to { text-shadow: 4px 4px 20px rgba(255, 255, 255, 1); }
         }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <a href="page1.html">Surprise Page</a>
-        <a href="page2.html">Birthday Gallery</a>
-        <a href="page3.html">Messages</a>
-        <a href="page4.html">Music</a>
-    </div>
     <div class="container">
-        <h1>🎉 Happy Birthday! 🎂</h1>
+        <h1>🎉 Happy Birthday Rajitha Sister! 🎂</h1>
         <p class="wish">Click the button to receive a special wish!</p>
         <button onclick="showWish()">Get Wish</button>
         <p id="birthdayWish" class="wish"></p>
         <audio id="birthdaySong" src="https://www.myinstants.com/media/sounds/happy-birthday-to-you.mp3" preload="auto"></audio>
         <button onclick="playMusic()">Play Birthday Song</button>
     </div>
+    <div class="gallery">
+        <h2>🎁 Birthday Memories 🎁</h2>
+        <img src="b.jpg" alt="Birthday Memory 1">
+        <img src="c.jpg" alt="Birthday Memory 2">
+        <img src="d.jpg" alt="Birthday Memory 3">
+        <img src="e.jpg" alt="Birthday Memory 4">
+    </div>
     <script>
         function showWish() {
             const wishes = [
-                "Wishing you a day filled with love and joy! 🎈",
-                "May your birthday be as wonderful as you are! 🎂",
-                "Have a fantastic year ahead! 🎁",
-                "May all your dreams come true! 🌟",
-                "Sending you loads of happiness on your special day! 🎉"
+                "Happy Birthday, dear sister! May your day be filled with love and endless joy! 🎈",
+                "Sister, may your birthday be as beautiful and special as you are! 🎂",
+                "Wishing you a year full of happiness, success, and love, my dear sister! 🎁",
+                "May all your dreams come true, my wonderful sister! You deserve the best! 🌟",
+                "Sending you my warmest hugs and love on your special day, my lovely sister! 🎉"
             ];
             const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
             document.getElementById("birthdayWish").textContent = randomWish;
-        }
-        function createConfetti() {
-            for (let i = 0; i < 100; i++) {
-                let confetti = document.createElement("div");
-                confetti.classList.add("confetti");
-                confetti.style.left = Math.random() * 100 + "vw";
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 5000);
-            }
+            
+            const backgrounds = [
+                'https://source.unsplash.com/1600x900/?cute-baby',
+                'https://source.unsplash.com/1600x900/?birthday-party',
+                'https://source.unsplash.com/1600x900/?celebration',
+                'https://source.unsplash.com/1600x900/?balloons',
+                'https://source.unsplash.com/1600x900/?cake'
+            ];
+            document.body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
         }
         function playMusic() {
             document.getElementById("birthdaySong").play();
         }
-        setInterval(createConfetti, 1000);
     </script>
 </body>
 </html>
